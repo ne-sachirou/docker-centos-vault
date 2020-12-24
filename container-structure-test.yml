@@ -1,0 +1,11 @@
+---
+schemaVersion: "2.0.0"
+commandTests:
+  - name: Install perl
+    command: bash
+    args:
+      - -c
+      - |
+        yum install -y perl
+        which perl
+    expectedOutput: ["/usr/bin/perl"]

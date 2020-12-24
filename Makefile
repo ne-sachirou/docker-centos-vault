@@ -7,6 +7,9 @@ IMAGE=nesachirou/centos:6
 build: ## Build a Docker image
 	DOCKER_BUILDKIT=1 docker build -t "$(IMAGE)" --build-arg BUILDKIT_INLINE_CACHE=1 --force-rm --pull .
 
+publish: ## Publish the Docker image to Docker Hub
+	docker push "$(IMAGE)"
+
 test: ## Test
 	hadolint Dockerfile
 	container-structure-test test --image "$(IMAGE)" --config container-structure-test.yml
